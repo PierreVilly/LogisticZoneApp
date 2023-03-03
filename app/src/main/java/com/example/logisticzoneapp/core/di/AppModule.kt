@@ -1,5 +1,6 @@
 package com.example.logisticzoneapp.core.di
 
+import com.example.logisticzoneapp.core.domain.zebra.BarcodeScannerHandlerImpl
 import com.example.logisticzoneapp.core.domain.zebra.IBarcodeScannerHandler
 import dagger.Module
 import dagger.Provides
@@ -10,6 +11,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+    @Provides
+    @Singleton
+    fun provideBarcodeScannerHandlerImpl() : BarcodeScannerHandlerImpl{
+        return BarcodeScannerHandlerImpl()
+    }
 //    @Provides
 //    @Singleton
 //    fun provideReplenishmentListDatabase(@ApplicationContext context: Context): ReplenishmentListDatabase{
